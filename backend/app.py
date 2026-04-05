@@ -108,7 +108,6 @@ def create_habits():
         return jsonify({'error': 'user_id and habits required'}), 400
 
     conn = get_db()
-    # Delete existing habits for user
     conn.execute('DELETE FROM habits WHERE user_id = ?', (user_id,))
 
     created = []
@@ -153,6 +152,8 @@ def toggle_habit():
     conn.close()
     return jsonify({'days': days})
 
+# ✅ CORRECT PLACE (ONLY HERE)
 if __name__ == '__main__':
     init_db()
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
