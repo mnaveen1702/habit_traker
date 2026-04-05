@@ -41,6 +41,10 @@ def init_db():
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
 
+@app.route('/')
+def home():
+    return "Habit Tracker Backend Running 🚀"
+
 @app.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
