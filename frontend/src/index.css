@@ -1,0 +1,97 @@
+:root {
+  --bg: #020617;
+  --bg2: #0a0f1e;
+  --card: #0f1729;
+  --card2: #1a2540;
+  --border: #1e3a5f;
+  --border2: #243450;
+  --accent: #38bdf8;
+  --accent2: #0ea5e9;
+  --red: #f43f5e;
+  --red2: #e11d48;
+  --gold: #f59e0b;
+  --text: #e2e8f0;
+  --text2: #94a3b8;
+  --text3: #475569;
+  --green: #10b981;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+body.light {
+  --bg: #f1f5f9;
+  --bg2: #e2e8f0;
+  --card: #ffffff;
+  --card2: #f8fafc;
+  --border: #cbd5e1;
+  --border2: #e2e8f0;
+  --accent: #0284c7;
+  --accent2: #0369a1;
+  --red: #e11d48;
+  --red2: #be123c;
+  --gold: #d97706;
+  --text: #0f172a;
+  --text2: #475569;
+  --text3: #94a3b8;
+  --green: #059669;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(244, 63, 94, 0); }
+}
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 20px rgba(56, 189, 248, 0.5); }
+  50% { text-shadow: 0 0 40px rgba(56, 189, 248, 0.9), 0 0 80px rgba(56, 189, 248, 0.3); }
+}
+@keyframes streakPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+@keyframes xpShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes levelUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-40px); opacity: 0; }
+}
+
+.animate-in { animation: fadeIn 0.4s ease forwards; }
+.glow-text { animation: glow 3s ease-in-out infinite; }
+.streak-pop { animation: streakPop 0.4s ease; }
